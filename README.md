@@ -22,4 +22,4 @@
 [release-shield]: https://img.shields.io/badge/version-v1.0.1-brightgreen
 [release-url]: https://github.com/zjalic/MouseMover/releases/tag/v1.0.1
 [download-shield]: https://img.shields.io/badge/download-app-blue
-[download-url]: https://github.com/zjalic/MouseMover/releases/download/v1.0.1/MouseMover.ja
+[download-url]: https://github.com/zjalic/MouseMover/releases/download/v1.0.1/MouseMover.jar
