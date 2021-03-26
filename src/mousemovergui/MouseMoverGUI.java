@@ -9,6 +9,7 @@ import mousemover.exception.AliveException;
 import mousemover.MouseMover;
 import mousemover.exception.NotAliveException;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -40,7 +41,7 @@ public class MouseMoverGUI extends javax.swing.JFrame {
     private void styleComponents(){
         UIManager.put("OptionPane.messageFont", new Font("Consolas", Font.PLAIN, 14));
         UIManager.put("OptionPane.buttonFont", new Font("Consolas", Font.PLAIN, 14));
- 
+        
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");  // This line gives Windows Theme
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
@@ -70,6 +71,11 @@ public class MouseMoverGUI extends javax.swing.JFrame {
         jEnableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jEnableButtonActionPerformed(evt);
+            }
+        });
+        jEnableButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jEnableButtonKeyReleased(evt);
             }
         });
 
@@ -124,8 +130,8 @@ public class MouseMoverGUI extends javax.swing.JFrame {
                     .addComponent(jStatus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDisableButton, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(jIntervalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jDisableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jIntervalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -164,6 +170,17 @@ public class MouseMoverGUI extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jIntervalButtonActionPerformed
+
+    private void jEnableButtonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jEnableButtonKeyReleased
+        if(evt.getKeyCode() == KeyEvent.VK_ESCAPE){
+            try {
+            MouseMover.disable();
+            jStatus.setText("Disabled");
+        } catch (NotAliveException ex) {
+            jStatus.setText("Not Enabled");
+        }
+        }
+    }//GEN-LAST:event_jEnableButtonKeyReleased
 
     /**
      * @param args the command line arguments
@@ -208,4 +225,6 @@ public class MouseMoverGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jStatus;
     private javax.swing.JLabel jStatusLabel;
     // End of variables declaration//GEN-END:variables
+
+   
 }

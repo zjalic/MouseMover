@@ -58,8 +58,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jDisableButton" pref="35" max="32767" attributes="0"/>
-                  <Component id="jIntervalButton" max="32767" attributes="0"/>
+                  <Component id="jDisableButton" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jIntervalButton" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -76,6 +76,7 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jEnableButtonActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jEnableButtonKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jDisableButton">
